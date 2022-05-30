@@ -10,13 +10,17 @@ public class BinarySearch {
 			System.out.println("Sorry the number you are trying to search does not exists!!");
 		else
 			System.out.println("The number found at index "+ index);
+		
+		 //applications of binary search
+		//finding near by square root of given number 
+		int n=28;
+		System.out.println("The square root of the number "+ n + " is " + squareRoot(n));
 
 	}
   static int binarySearch(int arr[],int key) {
 	  int l=0;
 	  int r=arr.length -1;
 	 
-	  
 	  while(l<=r) {
 		  int mid=l+(r-l)/2;
 		  System.out.println("The mid value is "+ mid);
@@ -27,7 +31,26 @@ public class BinarySearch {
 		  else 
 			  r=mid-1; // if the given key is less than the mid value then right index shoud be moved to mid-1
 	  }
+	  
 	  return -1; //if while loop exits then it means we did not found the key,so we are sending a negative number since array index cant be negative.
+  }
+  
+  static int squareRoot(int n) {
+	  int l=0;
+	  int r=n;
+	  int root=1;
+	  
+	  while(l<=r) {
+		  int mid=l+(r-l)/2;
+		  
+		  if(mid*mid<=n) {
+			  root =mid;
+			  l=mid+1;
+		  }
+		  else r=mid-1;
+	  }
+	  
+	  return root;
   }
 }
 
